@@ -1,6 +1,7 @@
 <script setup lang="ts">
 /**
  * 跳转微信 打开小程序
+ * @see {@link https://developers.weixin.qq.com/miniprogram/dev/framework/open-ability/url-scheme.html URL Scheme Document}
  */
 async function goTo() {
   const {
