@@ -1,4 +1,23 @@
 <script setup lang="ts">
+/**
+ * 跳转微信 打开小程序
+ */
+async function goTo() {
+  const {
+    data: {
+      value: { code, data: href, msg },
+    },
+  } = await useFetch(
+    `${import.meta.env.VITE_BASE_URL}/api/wx/web/grant/urlscheme/generate`,
+  )
+    .post()
+    .json()
+  if (code !== 'success')
+    return alert(msg)
+
+  window.location.href = href
+}
+goTo() // 首次进入直接导航至小程序
 </script>
 
 <template>
@@ -25,7 +44,17 @@
 
   <div absolute w-full bottom-10>
     <button
-      style="width: 200px; height: 45px; text-align: center; font-size: 17px; display: block; margin: 0 auto; padding: 8px 24px; border: none; border-radius: 4px; background-color: #07c160; color: #fff;"
+      block
+      w-200px
+      h-45px
+      text-center
+      text-17px
+      m="auto"
+      border-none
+      rd-4px
+      color-white
+      bg="#07c160"
+      @click="goTo"
     >
       前往微信打开
     </button>
