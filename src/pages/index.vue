@@ -29,7 +29,7 @@ isMobile && goTo() // 首次进入直接导航至小程序
   <template v-if="isMobile">
     <div flex="~ wrap" justify-center translate-y-26>
       <img w-16 rd-50 src="/icon.png" alt="">
-      <span w-full py-2>粮谷E+</span>
+      <span w-full py-2>小程序名称</span>
       <div flex text="sm neutral">
         <svg
           width="14"
