@@ -23,6 +23,19 @@ async function goTo() {
   window.location.href = href
 }
 isMobile && goTo() // 首次进入直接导航至小程序
+
+const component = 'script'
+const style = 'width: 200px; height: 45px; text-align: center; font-size: 17px; display: block; margin: 0 auto; padding: 8px 24px; border: none; border-radius: 4px; background-color: #07c160; color: #fff;'
+let ready = $ref(false)
+
+/**
+ * 监控 wx-open-launch-weapp 按钮是否加载成功
+ */
+function onReady() {
+  ready = true
+}
+
+useWxConfig()
 </script>
 
 <template>
@@ -49,17 +62,22 @@ isMobile && goTo() // 首次进入直接导航至小程序
     </div>
 
     <div absolute w-full bottom-10>
+      <wx-open-launch-weapp
+        v-show="ready"
+        username="gh_e4b097c8ed09"
+        @ready="onReady"
+      >
+        <component :is="component" type="text/wxtag-template">
+          <button
+            :style="style"
+          >
+            前往微信打开
+          </button>
+        </component>
+      </wx-open-launch-weapp>
       <button
-        block
-        w-200px
-        h-45px
-        text-center
-        text-17px
-        m="auto"
-        border-none
-        rd-4px
-        color-white
-        bg="#07c160"
+        v-if="!ready"
+        :style="style"
         @click="goTo"
       >
         前往微信打开
