@@ -64,7 +64,7 @@ useWxConfig()
     <div absolute w-full bottom-10>
       <wx-open-launch-weapp
         v-show="ready"
-        username="gh_e4b097c8ed09"
+        username="小程序 gh_ 开头的 ID,可在小程序后台获取"
         @ready="onReady"
       >
         <component :is="component" type="text/wxtag-template">
