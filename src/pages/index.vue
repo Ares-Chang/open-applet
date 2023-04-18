@@ -2,6 +2,7 @@
 const isMobile = navigator.userAgent.match(
   /(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|IEMobile)/i,
 )
+const username = import.meta.env.VITE_WX_USERNAME
 
 /**
  * 跳转微信 打开小程序
@@ -64,7 +65,7 @@ useWxConfig()
     <div absolute w-full bottom-10>
       <wx-open-launch-weapp
         v-show="ready"
-        username="小程序 gh_ 开头的 ID,可在小程序后台获取"
+        :username="username"
         @ready="onReady"
       >
         <component :is="component" type="text/wxtag-template">
