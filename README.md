@@ -1,4 +1,4 @@
-# open-applet
+# open-applet [![Netlify Status](https://api.netlify.com/api/v1/badges/7b8a4dd4-0e6a-4211-b53c-cbe52a8ada4d/deploy-status)](https://app.netlify.com/sites/open-applet/deploys)
 
 快速生成通过 `H5` 跳转打开微信小程序模板。
 
